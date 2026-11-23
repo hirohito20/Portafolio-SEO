@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lab Clima | Hirohito Tarazona</title><meta name="description" content="Consulta el clima en tiempo real de cualquier ciudad usando la API Open-Meteo."><meta name="author" content="Hirohito Alexandre Tarazona Quispe"><link rel="canonical" href="https://hirohito-tarazona-portafolio.vercel.app/proyectos/clima/index.html"><meta property="og:type" content="website"><meta property="og:title" content="Lab Clima | Hirohito Tarazona"><meta property="og:description" content="Consulta el clima en tiempo real de cualquier ciudad usando la API Open-Meteo."><meta property="og:image" content="https://hirohito-tarazona-portafolio.vercel.app/img/og-image.jpg"><meta property="og:url" content="https://hirohito-tarazona-portafolio.vercel.app/proyectos/clima/index.html"><link rel="stylesheet" href="../base.css"></head><body><main><a class="volver" href="../../index.html#galeria">← Volver al portafolio</a><h1>Lab Clima</h1>
+<form id="f" class="row box"><input name="ciudad" value="Lima" aria-label="Ciudad" required><button>Buscar clima</button></form>
+<div class="box" aria-live="polite"><h2 id="n"></h2><p class="big" id="t"></p><p id="d"></p></div>
+</main><script>
+const f=document.getElementById('f'),$=id=>document.getElementById(id);
+f.onsubmit=async e=>{e.preventDefault();$('n').textContent='Buscando…';$('t').textContent=$('d').textContent='';
+try{const g=await(await fetch('https://geocoding-api.open-meteo.com/v1/search?count=1&language=es&name='+encodeURIComponent(f.ciudad.value.trim()))).json();
+if(!g.results)throw 0;const p=g.results[0];
+const w=await(await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${p.latitude}&longitude=${p.longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=auto`)).json();
+const k=w.current;$('n').textContent=`${p.name}, ${p.country||''}`;$('t').textContent=k.temperature_2m+'°C';
+$('d').textContent=`Humedad: ${k.relative_humidity_2m}% · Viento: ${k.wind_speed_10m} km/h`}
+catch{$('n').textContent='No se encontró la ciudad o falló la conexión.'}};
+f.requestSubmit();
+</script></body></html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hirohito-tarazona-portafolio.vercel.app/sitemap.xml

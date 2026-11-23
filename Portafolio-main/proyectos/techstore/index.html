@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TechStore | Hirohito Tarazona</title><meta name="description" content="Catálogo de tecnología con búsqueda, filtro por categoría y carrito de compras."><meta name="author" content="Hirohito Alexandre Tarazona Quispe"><link rel="canonical" href="https://hirohito-tarazona-portafolio.vercel.app/proyectos/techstore/index.html"><meta property="og:type" content="website"><meta property="og:title" content="TechStore | Hirohito Tarazona"><meta property="og:description" content="Catálogo de tecnología con búsqueda, filtro por categoría y carrito de compras."><meta property="og:image" content="https://hirohito-tarazona-portafolio.vercel.app/img/og-image.jpg"><meta property="og:url" content="https://hirohito-tarazona-portafolio.vercel.app/proyectos/techstore/index.html"><link rel="stylesheet" href="../base.css"></head><body><main><a class="volver" href="../../index.html#galeria">← Volver al portafolio</a><h1>TechStore</h1>
+<div class="row box"><input id="q" placeholder="Buscar producto" aria-label="Buscar"><select id="c" aria-label="Categoría"><option value="">Todas</option><option>Cómputo</option><option>Accesorios</option><option>Audio</option></select></div>
+<p class="box"><b>Carrito:</b> <span id="car"></span> <button id="vac">Vaciar</button></p>
+<div class="grid" id="lista" style="margin-top:1rem"></div>
+</main><script>
+const P=[['Laptop Pro 14 pulgadas','Cómputo',3200],['Mouse inalámbrico','Accesorios',45],['Teclado mecánico','Accesorios',180],['Monitor 24 pulgadas','Cómputo',650],['Audífonos Bluetooth','Audio',120],['Parlante portátil','Audio',95],['Tablet 10 pulgadas','Cómputo',890],['Webcam HD','Accesorios',110]].map(([n,c,p])=>({n,c,p}));
+const $=id=>document.getElementById(id),cart=new Map(),fmt=n=>'S/ '+n.toFixed(2);
+function render(){const q=$('q').value.toLowerCase(),c=$('c').value;
+$('lista').innerHTML=P.map((x,i)=>({...x,i})).filter(x=>(!c||x.c===c)&&x.n.toLowerCase().includes(q)).map(x=>`<div class="box"><b>${x.n}</b><p>${x.c}</p><p>${fmt(x.p)}</p><button data-i="${x.i}">Agregar</button></div>`).join('')||'<p>Sin resultados.</p>';
+let n=0,t=0;cart.forEach((q,i)=>{n+=q;t+=q*P[i].p});$('car').textContent=`${n} artículos · ${fmt(t)}`}
+$('lista').onclick=e=>{const i=e.target.dataset.i;if(i!=null){cart.set(+i,(cart.get(+i)||0)+1);render()}};
+$('vac').onclick=()=>{cart.clear();render()};$('q').oninput=$('c').onchange=render;render();
+</script></body></html>

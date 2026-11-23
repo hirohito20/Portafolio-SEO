@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Veterinaria | Hirohito Tarazona</title><meta name="description" content="CRUD de mascotas con datos guardados en el navegador."><meta name="author" content="Hirohito Alexandre Tarazona Quispe"><link rel="canonical" href="https://hirohito-tarazona-portafolio.vercel.app/proyectos/veterinaria/index.html"><meta property="og:type" content="website"><meta property="og:title" content="Veterinaria | Hirohito Tarazona"><meta property="og:description" content="CRUD de mascotas con datos guardados en el navegador."><meta property="og:image" content="https://hirohito-tarazona-portafolio.vercel.app/img/og-image.jpg"><meta property="og:url" content="https://hirohito-tarazona-portafolio.vercel.app/proyectos/veterinaria/index.html"><link rel="stylesheet" href="../base.css"></head><body><main><a class="volver" href="../../index.html#galeria">← Volver al portafolio</a><h1>Veterinaria</h1>
+<form id="f" class="row box"><input name="nombre" placeholder="Mascota" aria-label="Nombre de la mascota" required><select name="especie" aria-label="Especie"><option>Perro</option><option>Gato</option><option>Otro</option></select><input name="dueno" placeholder="Dueño" aria-label="Dueño" required><button>Agregar</button></form>
+<ul class="box" id="l"></ul>
+</main><script>
+const f=document.getElementById('f'),l=document.getElementById('l'),b=f.querySelector('button');let d,ed=null;
+try{d=JSON.parse(localStorage.getItem('vet'))||[]}catch{d=[]}
+const save=()=>{try{localStorage.setItem('vet',JSON.stringify(d))}catch{}draw()};
+function draw(){l.replaceChildren(...d.map((m,i)=>{const li=document.createElement('li'),s=document.createElement('span');s.textContent=`${m.nombre} (${m.especie}) · Dueño: ${m.dueno}`;
+const a=document.createElement('span');a.innerHTML=`<button data-e="${i}">Editar</button> <button data-d="${i}">Borrar</button>`;li.append(s,a);return li}));
+if(!d.length)l.textContent='Aún no hay mascotas registradas.'}
+f.onsubmit=e=>{e.preventDefault();const m={nombre:f.nombre.value.trim(),especie:f.especie.value,dueno:f.dueno.value.trim()};if(!m.nombre||!m.dueno)return;
+ed===null?d.push(m):d[ed]=m;ed=null;f.reset();b.textContent='Agregar';save()};
+l.onclick=e=>{const t=e.target.dataset;if(t.d!=null){d.splice(+t.d,1);save()}
+if(t.e!=null){ed=+t.e;const m=d[ed];f.nombre.value=m.nombre;f.especie.value=m.especie;f.dueno.value=m.dueno;b.textContent='Guardar cambios'}};
+draw();
+</script></body></html>

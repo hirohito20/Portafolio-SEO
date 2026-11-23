@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hirohito Tarazona | Portafolio de Diseño y Desarrollo de Software</title>
+<meta name="description" content="Portafolio de Hirohito Alexandre Tarazona Quispe, estudiante de Diseño y Desarrollo de Software en Tecsup: proyectos web con HTML5, CSS3 y JavaScript.">
+<meta name="keywords" content="portafolio, desarrollo de software, diseño de interfaces, HTML5, CSS3, JavaScript, Tecsup, Hirohito Tarazona, proyectos web">
+<meta name="author" content="Hirohito Alexandre Tarazona Quispe">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#14213d">
+<link rel="canonical" href="https://hirohito-tarazona-portafolio.vercel.app/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Portafolio de Hirohito Tarazona">
+<meta property="og:locale" content="es_PE">
+<meta property="og:title" content="Hirohito Tarazona | Portafolio de Diseño y Desarrollo de Software">
+<meta property="og:description" content="Proyectos web, interfaces y aplicaciones de un estudiante de Diseño y Desarrollo de Software en Tecsup.">
+<meta property="og:image" content="https://hirohito-tarazona-portafolio.vercel.app/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Portafolio de Hirohito Tarazona con capturas de sus proyectos">
+<meta property="og:url" content="https://hirohito-tarazona-portafolio.vercel.app/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hirohito Tarazona | Portafolio de Diseño y Desarrollo de Software">
+<meta name="twitter:description" content="Proyectos web, interfaces y aplicaciones de un estudiante de Diseño y Desarrollo de Software en Tecsup.">
+<meta name="twitter:image" content="https://hirohito-tarazona-portafolio.vercel.app/img/og-image.jpg">
+
+<!-- Datos estructurados -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Hirohito Alexandre Tarazona Quispe","url":"https://hirohito-tarazona-portafolio.vercel.app/","jobTitle":"Estudiante de Diseño y Desarrollo de Software","affiliation":{"@type":"CollegeOrUniversity","name":"Tecsup"},"sameAs":["https://github.com/hirohitotarazona","https://www.instagram.com/hi_rohito","https://x.com/h1_rohito"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#inicio" aria-label="Inicio"><img src="img/foto.jpg" alt="Hirohito Tarazona" width="46" height="46" onerror="this.replaceWith('HT')"></a>
+  <button id="menuBtn" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+  <nav id="menu">
+    <a href="#inicio">Inicio</a><a href="#sobre">Sobre mí</a><a href="#galeria">Galería</a><a href="#testimonios">Testimonios</a><a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<aside class="social" aria-label="Redes sociales">
+  <a href="https://www.facebook.com/hirohito.tarazona.3" style="--c:#3b5998" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+  <a href="https://www.youtube.com/@HirohitoAlexandreTarazonaQuisp" style="--c:#e00" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path class="cut" d="M10 9v6l5-3z"/></svg></a>
+  <a href="https://x.com/h1_rohito" style="--c:#14171a" aria-label="X (Twitter)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg></a>
+  <a href="https://www.instagram.com/hi_rohito" style="--c:#c13584" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3"/></svg></a>
+  <a href="https://github.com/hirohitotarazona" style="--c:#24292f" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+</aside>
+<main>
+<section id="inicio" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Hirohito Alexandre Tarazona Quispe</h1>
+      <p class="lead">Estudiante de Diseño y Desarrollo de Software en Tecsup. Construyo páginas web claras, rápidas y que se ven bien en cualquier pantalla.</p>
+      <p class="actions"><a class="btn" href="#galeria">Ver mis proyectos</a> <a class="btn ghost" href="#contacto">Escríbeme</a></p>
+    </div>
+    <pre class="code" aria-label="Resumen en código"><code id="typed" data-text="const hirohito = {
+  estudiante: 'Tecsup',
+  carrera: 'Diseño y Desarrollo de Software',
+  stack: ['HTML5', 'CSS3', 'JavaScript'],
+  disponible: true
+};"></code><span class="cursor"></span></pre>
+  </div>
+</section>
+
+<section id="sobre" class="sec">
+  <div class="wrap">
+    <h2>Sobre mí</h2>
+    <img class="foto" src="img/foto.jpg" alt="Foto de Hirohito Tarazona" width="180" height="180" onerror="this.remove()">
+    <div class="two">
+      <p>Soy estudiante del programa de Diseño y Desarrollo de Software en Tecsup. Me gusta convertir una idea en una página que funciona: primero ordeno el contenido, luego cuido el diseño y al final pruebo que todo responda bien en celular, tablet y computadora.</p>
+      <p>Trabajo en equipo en laboratorios y proyectos, uso GitHub para versionar mi código y publico mis trabajos en la web para que cualquiera pueda verlos.</p>
+    </div>
+    <div class="skills">
+      <article><h3>HTML5</h3><p>Estructura semántica y accesible.</p></article>
+      <article><h3>CSS3</h3><p>Diseño responsive con Grid y Flexbox.</p></article>
+      <article><h3>JavaScript</h3><p>Interacción, validación y consumo de APIs.</p></article>
+      <article><h3>Git y GitHub</h3><p>Control de versiones y trabajo colaborativo.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="sec alt">
+  <div class="wrap">
+    <h2>Galería de proyectos</h2>
+    <p class="sub">Proyectos que funcionan: haz clic en cada tarjeta para abrirlo.</p>
+    <div class="gallery">
+      <a class="card g1" href="proyectos/clima/index.html"><img src="img/proyecto1.jpg" alt="Captura de Lab Clima" onerror="this.remove()"><span>Lab Clima<small>Clima en tiempo real con la API Open-Meteo</small></span></a>
+      <a class="card g2" href="proyectos/techstore/index.html"><img src="img/proyecto2.jpg" alt="Captura de TechStore" onerror="this.remove()"><span>TechStore<small>Catálogo con búsqueda, filtro y carrito</small></span></a>
+      <a class="card g5" href="proyectos/vida-saludable/index.html"><img src="img/proyecto3.jpg" alt="Captura de Vida Saludable" onerror="this.remove()"><span>Vida Saludable<small>Calculadora de IMC con rutina y dieta</small></span></a>
+      <a class="card g6" href="proyectos/veterinaria/index.html"><img src="img/proyecto4.jpg" alt="Captura de Veterinaria" onerror="this.remove()"><span>Veterinaria<small>CRUD de mascotas guardado en el navegador</small></span></a>
+      <a class="card g3" href="proyectos/tareas/index.html"><img src="img/proyecto5.jpg" alt="Captura de Lista de Tareas" onerror="this.remove()"><span>Lista de Tareas<small>Agrega, completa y filtra tareas con guardado local</small></span></a>
+      <a class="card g4" href="proyectos/memoria/index.html"><img src="img/proyecto6.jpg" alt="Captura de Juego de Memoria" onerror="this.remove()"><span>Juego de Memoria<small>Encuentra las parejas con contador de movimientos</small></span></a>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios" class="sec">
+  <div class="wrap">
+    <h2>Testimonios</h2>
+    <p class="sub">Lo que dicen mis compañeros y docentes sobre trabajar conmigo.</p>
+    <div class="quotes">
+      <blockquote><p>“Trabajar con Hirohito en los laboratorios fue sencillo. Cumple con su parte a tiempo y, cuando algo no sale, se sienta a revisarlo con el equipo hasta resolverlo.”</p><div class="autor"><span class="avatar" aria-hidden="true">AB</span><div><strong>Alonso Banda</strong><small>Tecsup</small></div></div></blockquote>
+      <blockquote><p>“Se nota que le gusta programar. Cuando no entendíamos algo de JavaScript, él lo explicaba paso a paso y con calma.”</p><div class="autor"><span class="avatar" aria-hidden="true">NR</span><div><strong>Nataly Rivera</strong><small>Tecsup</small></div></div></blockquote>
+      <blockquote><p>“Hirohito es un estudiante responsable, que entrega sus trabajos completos y busca mejorar lo que presenta.”</p><div class="autor"><span class="avatar" aria-hidden="true">FM</span><div><strong>Fidel Matos</strong><small>Tecsup</small></div></div></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="sec alt">
+  <div class="wrap narrow">
+    <h2>Contacto</h2>
+    <p class="sub">Cuéntame qué necesitas y te respondo por correo.</p>
+    <form id="form" action="https://formspree.io/f/xnpdopan" method="post" novalidate>
+      <label>Nombre completo<input name="nombre" required autocomplete="name"></label>
+      <label>Correo electrónico<input name="email" type="email" required autocomplete="email"></label>
+      <label>Teléfono<input name="telefono" type="tel" autocomplete="tel"></label>
+      <label>Mensaje<textarea name="mensaje" rows="5" required></textarea></label>
+      <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" type="submit">Enviar mensaje</button>
+      <p id="estado" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><p>© <span id="anio">2026</span> Hirohito Alexandre Tarazona Quispe. Hecho con HTML5, CSS3 y JavaScript.</p></footer>
+</body>
+</html>

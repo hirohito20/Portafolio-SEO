@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lista de Tareas | Hirohito Tarazona</title><meta name="description" content="Agrega, completa y filtra tareas con guardado local en el navegador."><meta name="author" content="Hirohito Alexandre Tarazona Quispe"><link rel="canonical" href="https://hirohito-tarazona-portafolio.vercel.app/proyectos/tareas/index.html"><meta property="og:type" content="website"><meta property="og:title" content="Lista de Tareas | Hirohito Tarazona"><meta property="og:description" content="Agrega, completa y filtra tareas con guardado local en el navegador."><meta property="og:image" content="https://hirohito-tarazona-portafolio.vercel.app/img/og-image.jpg"><meta property="og:url" content="https://hirohito-tarazona-portafolio.vercel.app/proyectos/tareas/index.html"><link rel="stylesheet" href="../base.css"><style>li.hecha span{text-decoration:line-through;opacity:.55}li span{flex:1;cursor:pointer}.x{background:#d1495b;border-color:#d1495b;padding:.2rem .6rem}.filtros button{background:#fff;color:#2f4bff}.filtros button.on{background:#2f4bff;color:#fff}</style></head><body><main><a class="volver" href="../../index.html#galeria">← Volver al portafolio</a><h1>Lista de Tareas</h1>
+<form id="f" class="row box"><input id="t" maxlength="80" placeholder="Nueva tarea" aria-label="Nueva tarea" required><button>Agregar</button></form>
+<div class="box"><div class="row filtros" id="fl"><button data-f="todas" class="on">Todas</button><button data-f="pend">Pendientes</button><button data-f="hechas">Hechas</button></div><ul id="l"></ul><p id="c" aria-live="polite"></p></div>
+</main><script>
+let ts=[],fil='todas';try{ts=JSON.parse(localStorage.getItem('tareas'))||[]}catch(e){}
+const l=document.getElementById('l'),c=document.getElementById('c');
+const g=()=>{try{localStorage.setItem('tareas',JSON.stringify(ts))}catch(e){}};
+function pinta(){l.innerHTML='';ts.forEach((t,i)=>{if(fil==='pend'&&t.h||fil==='hechas'&&!t.h)return;
+const li=document.createElement('li');if(t.h)li.className='hecha';
+const s=document.createElement('span');s.textContent=t.x;s.onclick=()=>{t.h=!t.h;g();pinta()};
+const b=document.createElement('button');b.className='x';b.textContent='✕';b.setAttribute('aria-label','Borrar tarea');b.onclick=()=>{ts.splice(i,1);g();pinta()};
+li.append(s,b);l.append(li)});
+const p=ts.filter(t=>!t.h).length;c.textContent=ts.length?p+' pendiente(s) de '+ts.length:'Aún no hay tareas.'}
+document.getElementById('f').onsubmit=e=>{e.preventDefault();const i=document.getElementById('t');ts.push({x:i.value.trim(),h:false});i.value='';g();pinta()};
+document.getElementById('fl').onclick=e=>{if(!e.target.dataset.f)return;fil=e.target.dataset.f;document.querySelectorAll('#fl button').forEach(b=>b.classList.toggle('on',b===e.target));pinta()};
+pinta();
+</script></body></html>

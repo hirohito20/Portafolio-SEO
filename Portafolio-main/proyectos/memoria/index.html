@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Juego de Memoria | Hirohito Tarazona</title><meta name="description" content="Juego para encontrar las parejas con contador de movimientos."><meta name="author" content="Hirohito Alexandre Tarazona Quispe"><link rel="canonical" href="https://hirohito-tarazona-portafolio.vercel.app/proyectos/memoria/index.html"><meta property="og:type" content="website"><meta property="og:title" content="Juego de Memoria | Hirohito Tarazona"><meta property="og:description" content="Juego para encontrar las parejas con contador de movimientos."><meta property="og:image" content="https://hirohito-tarazona-portafolio.vercel.app/img/og-image.jpg"><meta property="og:url" content="https://hirohito-tarazona-portafolio.vercel.app/proyectos/memoria/index.html"><link rel="stylesheet" href="../base.css"><style>.tab{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:1rem}.c{aspect-ratio:1;font-size:2rem;background:#2f4bff;color:#2f4bff;border-radius:12px;padding:0}.c.v{background:#fff;color:#14213d;border:2px solid #2f4bff}.c.ok{background:#d9f5df;border-color:#3a7d44;color:#14213d}.info{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}</style></head><body><main><a class="volver" href="../../index.html#galeria">← Volver al portafolio</a><h1>Juego de Memoria</h1>
+<div class="box info"><span>Movimientos: <b id="m">0</b></span><span id="msg" aria-live="polite">Encuentra las 8 parejas.</span><button id="r">Reiniciar</button></div>
+<div class="tab" id="t"></div>
+</main><script>
+const E=['🐶','🐱','🦊','🐼','🐸','🦁','🐵','🐙'],t=document.getElementById('t'),m=document.getElementById('m'),msg=document.getElementById('msg');
+let a,b,bloq,mov,ok;
+function nuevo(){const d=[...E,...E].sort(()=>Math.random()-.5);t.innerHTML='';mov=ok=0;a=b=null;bloq=false;m.textContent=0;msg.textContent='Encuentra las 8 parejas.';
+d.forEach(e=>{const x=document.createElement('button');x.className='c';x.textContent=e;x.setAttribute('aria-label','Carta');x.onclick=()=>voltea(x);t.append(x)})}
+function voltea(x){if(bloq||x.classList.contains('v'))return;x.classList.add('v');
+if(!a){a=x;return}b=x;mov++;m.textContent=mov;
+if(a.textContent===b.textContent){a.classList.add('ok');b.classList.add('ok');a=b=null;if(++ok===8)msg.textContent='¡Ganaste en '+mov+' movimientos!'}
+else{bloq=true;setTimeout(()=>{a.classList.remove('v');b.classList.remove('v');a=b=null;bloq=false},800)}}
+document.getElementById('r').onclick=nuevo;nuevo();
+</script></body></html>
